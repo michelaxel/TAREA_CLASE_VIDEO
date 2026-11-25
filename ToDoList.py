@@ -13,6 +13,10 @@ class ToDoList(QtWidgets.QMainWindow):
 
     def AgregarTarea(self):
         tarea = self.edtTarea.text()
+        if tarea.strip() == "":
+            QMessageBox.warning(self,"Error","Ingresa una tarea")
+            self.edtTarea.setFocus()
+            return
         self.lstTareas.addItem(tarea)
         self.edtTarea.clear()
         self.edtTarea.setFocus()
